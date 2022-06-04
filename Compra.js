@@ -1,0 +1,22 @@
+describe('buyed like a costumer', () => {
+    it('user can login', () => {
+      cy.visit ('https://www.demoblaze.com/index.html')
+      cy.get('a[id="login2"]').click()
+      cy.get('input[id="loginusername"]').type('thisisafalseuser')
+      cy.get('input[id="loginpassword"]').type('thisisfalsepassword')
+      cy.get('button').contains('Log in').click()
+    })
+    it('user can buy', () => {
+        cy.get('a').contains('Samsung galaxy s6').click({force: true})
+        cy.get('a[onclick="addToCart(1)"]').click()
+        cy.get('a').contains('Cart').click()
+        cy.get('button').contains('Place Order').click()
+        cy.get('input[id="name"]').type('Jefferson Gutierritos')
+        cy.get('input[id="country"]').type('Locombia')
+        cy.get('input[id="city"]').type('Chochó')
+        cy.get('input[id="card"]').type('5573367061899851')
+        cy.get('input[id="month"]').type('12')
+        cy.get('input[id="year"]').type('2021')
+        cy.get('button').contains('Purchase').click()
+      })
+})
