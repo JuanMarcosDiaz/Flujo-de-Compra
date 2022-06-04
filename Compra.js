@@ -1,4 +1,4 @@
-describe('buyed like a costumer', () => {
+describe('buy only-one article', () => {
     it('user can login', () => {
       cy.visit ('https://www.demoblaze.com/index.html')
       cy.get('a[id="login2"]').click()
